@@ -1,9 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import 'antd/dist/antd.css';
+import store from './redux/store/store';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const root = document.getElementById('root');
+ReactDOM.render(
+  // <Provider store={store}>
 
-  ReactDOM.render(<App />, root);
-});
+  <Router>
+    <App />
+  </Router>,
+  // </Provider>
+  document.getElementById('root'),
+);
