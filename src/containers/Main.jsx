@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,48 +6,29 @@ import {
   Link,
   useParams,
 } from 'react-router-dom';
+
+import SelectedCity from './SelectedCity';
 import { connect } from 'react-redux';
-import { setSelectedCity } from '../redux/actions/actions';
+import CurrentCity from './CurrentCity';
 
-const City = (props) => {
-  let { topicId } = useParams();
-  console.log(props);
-  // setSelectedCity({ seted_city: topicId });
-  return <h3>Requested topic ID: {topicId}</h3>;
-};
-
-export const Content = () => {
-  return <h3>Main</h3>;
-};
-
-export const Main = () => {
+const Main = ({ seted_city, weather_data }) => {
   return (
     <>
       <Route path={`/:topicId`}>
-        <City />
+        <SelectedCity city={seted_city} weather={weather_data} />
       </Route>
       <Route exact path='/'>
-        <Content />
+        <CurrentCity city={seted_city} weather={weather_data} />
       </Route>
     </>
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
   return {
-    setSelectedCity: (value) => dispatch(setSelectedCity(value)),
+    seted_city: state.seted_city,
+    weather_data: state.weather_data,
   };
 };
 
-// const mapStateToProps = (state) => {
-//   return {
-//     responce_data: state.responce_data,
-//     transportation_status: state.transportation_status,
-//   };
-// };
-
-export default connect(
-  // mapStateToProps,
-  null,
-  mapDispatchToProps,
-)(City);
+export default connect(mapStateToProps, null)(Main);

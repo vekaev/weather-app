@@ -1,8 +1,9 @@
 import React from 'react';
-import { SET_SELECTED_CITY } from '../actions/actionTypes';
+import { SET_SELECTED_CITY, SET_WEATHER_DATA } from '../actions/actionTypes';
 
 export const initialState = {
-  seted_city: '',
+  seted_city: 'Getting your location..',
+  weather_data: '',
 };
 
 export const filterReducer = (state = initialState, action) => {
@@ -13,6 +14,13 @@ export const filterReducer = (state = initialState, action) => {
         ...action.playload,
       };
       break;
+    case SET_WEATHER_DATA:
+      return {
+        ...state,
+        ...action.playload,
+      };
+      break;
+
     default:
       return { ...state };
   }
