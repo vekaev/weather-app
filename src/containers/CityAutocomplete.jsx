@@ -1,23 +1,19 @@
 import React from 'react';
 import axios from 'axios';
-import { Select } from 'antd';
 import { cityList } from '../cityList';
-import { useHistory, useParams } from 'react-router-dom';
-const { Option } = Select;
-
+import { useHistory } from 'react-router-dom';
+import { Select } from 'semantic-ui-react';
 export const CityAutocomplete = () => {
   const history = useHistory();
-  let { topicId } = useParams();
 
-  console.log(history);
   let sendRequest = (status, value) => {
-    console.log(value);
-    history.push(`/${value}`);
+    let setValue = value.value;
+    history.push(`/${setValue}`);
     axios
       .get(
         status == 'current'
-          ? `http://api.openweathermap.org/data/2.5/weather?q=${value}&units=metric&appid=e70b3d12e10d1735e93d7770e126a258`
-          : `http://api.openweathermap.org/data/2.5/weather?q=${value}&units=metric&appid=e70b3d12e10d1735e93d7770e126a258`,
+          ? `http://api.openweathermap.org/data/2.5/weather?q=${setValue}&units=metric&appid=e70b3d12e10d1735e93d7770e126a258`
+          : `http://api.openweathermap.org/data/2.5/weather?q=${setValue}&units=metric&appid=e70b3d12e10d1735e93d7770e126a258`,
       )
       .then((res) => {
         console.log(res);
@@ -29,25 +25,25 @@ export const CityAutocomplete = () => {
 
   return (
     <Select
-      showSearch
-      style={{ width: 400 }}
-      placeholder='Select capital'
-      optionFilterProp='children'
-      defaultValue={topicId ? topicId : ''}
-      onChange={() => sendRequest('choosen_city', value)}
-      filterOption={(input, option) =>
-        option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-      }
+      placeholder='Select a city'
+      onChange={(e, { value }) => sendRequest('choosen_city', { value })}
+      options={cityList}
+      defaultValue={false}
     >
-      {cityList.map((item, index) => {
-        if (item.city) {
-          return (
-            <Option key={index} value={item.city}>
-              {item.city}
-            </Option>
-          );
-        }
-      })}
+      {/*{cityList.map((item, index) => {*/}
+      {/*  if (item.city) {*/}
+      {/*    // console.log(topicId == item.city, item.city, topicId);*/}
+      {/*    return (*/}
+      {/*      <option*/}
+      {/*        // selected={topicId == item.city}*/}
+      {/*        key={index}*/}
+      {/*        value={item.city}*/}
+      {/*      >*/}
+      {/*        {item.city}*/}
+      {/*      </option>*/}
+      {/*    );*/}
+      {/*  }*/}
+      {/*})}*/}
     </Select>
   );
 };

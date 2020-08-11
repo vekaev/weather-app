@@ -1,2 +1,2 @@
 // export const SEND_SEARCH_REQUEST = 'SEND_SEARCH_REQUEST';
-// export const SET_CITY = 'SET_CITY';
+export const SET_SELECTED_CITY = 'SET_SELECTED_CITY';
