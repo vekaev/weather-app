@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import { filterReducer } from '../reducers/reducer';
-import { logger } from 'redux-logger';
+// import { logger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 

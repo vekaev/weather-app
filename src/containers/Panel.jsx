@@ -1,9 +1,13 @@
 import React from 'react';
 import CityAutocomplete from './CityAutocomplete';
 import { connect } from 'react-redux';
-
+import styles from './Constainer.module.scss';
 const Panel = () => {
-  return <CityAutocomplete />;
+  return (
+    <div className={styles['panel']}>
+      <CityAutocomplete />
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => {

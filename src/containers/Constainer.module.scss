@@ -1,0 +1,25 @@
+.app {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  min-height: 600px;
+  background-image: url('/design/images/58328.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.panel {
+  position: relative;
+  min-width: 350px;
+  padding: 40px 20px;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+}
+.main {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column-reverse;
+  width: 100%;
+  padding: 40px 50px;
+}

@@ -11,13 +11,13 @@ export const filterReducer = (state = initialState, action) => {
     case SET_SELECTED_CITY:
       return {
         ...state,
-        ...action.playload,
+        ...action.payload,
       };
       break;
     case SET_WEATHER_DATA:
       return {
         ...state,
-        ...action.playload,
+        ...action.payload,
       };
       break;
 

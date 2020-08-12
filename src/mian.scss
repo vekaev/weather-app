@@ -1,0 +1,18 @@
+.ui.selection.dropdown,
+.ui.dropdown .menu {
+  background: none !important;
+  border: none;
+  border-bottom: 2px solid white;
+  border-color: white !important;
+  span,
+  .text,
+  .icon,
+  .text:not(.default),
+  input,
+  .message {
+    color: white !important;
+  }
+  .message {
+    color: #0088ff !important;
+  }
+}

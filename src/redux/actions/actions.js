@@ -4,17 +4,23 @@ import axios from 'axios';
 export const setSelectedCity = (value) => {
   return {
     type: SET_SELECTED_CITY,
-    playload: value,
+    payload: value,
   };
 };
 export const setWeatherData = (value) => {
   return {
     type: SET_WEATHER_DATA,
-    playload: value,
+    payload: value,
   };
 };
 
 export const sendRequest = (value) => (dispatch) => {
+  dispatch(
+    setSelectedCity({
+      seted_city: `Loading`,
+    }),
+  );
+  dispatch(setWeatherData({ weather_data: null }));
   axios
     .get(
       typeof value == 'object'
@@ -27,12 +33,12 @@ export const sendRequest = (value) => (dispatch) => {
           seted_city: `${res.data.name}, ${res.data.sys.country}`,
         }),
       );
-      dispatch(setWeatherData({ weather_data: res }));
+      dispatch(setWeatherData({ weather_data: res.data }));
     })
     .catch((error) => {
       dispatch(
         setSelectedCity({
-          seted_city: `Not correct data`,
+          seted_city: `Cann't get weather for ${value}`,
         }),
       );
       dispatch(setWeatherData({ weather_data: null }));

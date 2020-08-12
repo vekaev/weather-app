@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { sendRequest } from '../redux/actions/actions';
+import DateAndWeather from '../components/DateAndWeather';
 
 const SelectedCity = ({ seted_city, weather_data, sendRequest }) => {
   let { topicId } = useParams();
@@ -12,6 +13,7 @@ const SelectedCity = ({ seted_city, weather_data, sendRequest }) => {
 
   return (
     <>
+      <DateAndWeather city={seted_city} weather={weather_data} />
       <Link to={'/'}>Back</Link>
     </>
   );
