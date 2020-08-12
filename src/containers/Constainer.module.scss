@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   max-width: 1200px;
+  width: 100%;
   min-height: 600px;
   background-image: url('/design/images/58328.jpg');
   background-repeat: no-repeat;
@@ -20,6 +21,5 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column-reverse;
-  width: 100%;
   padding: 40px 50px;
 }

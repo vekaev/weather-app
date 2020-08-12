@@ -1,3 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/design/images/58328.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  backdrop-filter: blur(20px);
+}
+
 .ui.selection.dropdown,
 .ui.dropdown .menu {
   background: none !important;
