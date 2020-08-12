@@ -1,16 +1,19 @@
 * {
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
-body {
+#root {
   display: flex;
   justify-content: center;
+  min-height: 100vh;
   align-items: center;
   background-image: url('/design/images/58328.jpg');
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
   background-size: cover;
-  backdrop-filter: blur(20px);
+  resize: both;
+  overflow: hidden;
 }
 
 .ui.selection.dropdown,
@@ -19,6 +22,7 @@ body {
   border: none;
   border-bottom: 2px solid white;
   border-color: white !important;
+
   span,
   .text,
   .icon,
@@ -27,7 +31,28 @@ body {
   .message {
     color: white !important;
   }
+
+  @media (max-width: 768px) {
+    .item {
+      background: white !important;
+      .text {
+        color: black !important;
+      }
+    }
+  }
+
   .message {
-    color: #0088ff !important;
+    color: red !important;
+  }
+}
+
+@keyframes animateMain {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
   }
 }

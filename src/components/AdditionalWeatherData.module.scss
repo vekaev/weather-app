@@ -1,0 +1,16 @@
+.list {
+  padding: 0;
+  margin: 50px 0 20px;
+  &__item {
+    list-style: none;
+    margin-bottom: 20px;
+    p,
+    span {
+      font-size: 20px;
+      color: white;
+    }
+    span {
+      margin-left: 8px;
+    }
+  }
+}

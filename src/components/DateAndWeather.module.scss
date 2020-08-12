@@ -1,7 +1,38 @@
 .info-block {
+  margin-top: 10px;
+  animation-name: animateMain;
+  animation-duration: 200ms;
   h1,
   .temp {
     font-size: 50px;
     color: white;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+.spinner {
+  position: relative;
+  height: 90px;
+  width: 90px;
+
+  display: block;
+}
+
+.spinner:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  border-top: 5px solid #ffffff;
+  border-right: 5px solid transparent;
+  animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
   }
 }

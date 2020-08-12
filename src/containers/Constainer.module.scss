@@ -3,15 +3,22 @@
   justify-content: space-between;
   max-width: 1200px;
   width: 100%;
-  min-height: 600px;
+  min-height: 700px;
   background-image: url('/design/images/58328.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  margin: 0 20px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 .panel {
   position: relative;
   min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 40px 20px;
   z-index: 1;
   background: rgba(0, 0, 0, 0.2);
@@ -21,5 +28,8 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column-reverse;
-  padding: 40px 50px;
+  padding: 45px 50px;
+  @media (max-width: 768px) {
+    padding: 45px 25px;
+  }
 }

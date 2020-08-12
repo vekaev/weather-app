@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { sendRequest } from '../redux/actions/actions';
 import DateAndWeather from '../components/DateAndWeather';
+import { Button, Icon } from 'semantic-ui-react';
 
 const SelectedCity = ({ seted_city, weather_data, sendRequest }) => {
   let { topicId } = useParams();
@@ -14,7 +15,12 @@ const SelectedCity = ({ seted_city, weather_data, sendRequest }) => {
   return (
     <>
       <DateAndWeather city={seted_city} weather={weather_data} />
-      <Link to={'/'}>Back</Link>
+      <Link to={'/'}>
+        <Button inverted icon labelPosition='left'>
+          Current weather
+          <Icon name='left arrow' />
+        </Button>
+      </Link>
     </>
   );
 };

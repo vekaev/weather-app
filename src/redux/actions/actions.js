@@ -17,7 +17,7 @@ export const setWeatherData = (value) => {
 export const sendRequest = (value) => (dispatch) => {
   dispatch(
     setSelectedCity({
-      seted_city: `Loading`,
+      seted_city: false,
     }),
   );
   dispatch(setWeatherData({ weather_data: null }));

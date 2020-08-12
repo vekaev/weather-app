@@ -10,7 +10,10 @@ const CityAutocomplete = ({ seted_city, sendRequest }) => {
   const dropdownContainer = useRef(null);
   const [optionValue, setOptionValue] = useState('');
   const history = useHistory();
-  let cityName = seted_city.split(',');
+  let cityName;
+  if (seted_city) {
+    cityName = seted_city.split(',');
+  }
 
   const redirectFunction = (value) => {
     history.push(`/${value}`);
@@ -44,12 +47,12 @@ const CityAutocomplete = ({ seted_city, sendRequest }) => {
         onSearchChange={handleSearchChange}
         onKeyDown={onKeyDown}
         closeOnEscape
-        noResultsMessage='You can get weather for other city'
+        noResultsMessage='Press enter to get weather for other city'
         options={cityList}
         fluid
         search
         selection
-        value={cityName[0]}
+        value={seted_city ? cityName[0] : false}
       />
     </div>
   );
@@ -64,8 +67,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     sendRequest: (value) => dispatch(sendRequest(value)),
-    setSelectedCity: (value) => dispatch(setSelectedCity(value)),
-    setWeatherData: (value) => dispatch(setWeatherData(value)),
   };
 };
 

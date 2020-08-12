@@ -4,13 +4,21 @@ import styles from './DateAndWeather.module.scss';
 const DateAndWeather = ({ city, weather }) => {
   return (
     <div className={styles['info-block']}>
-      <h1>{city}</h1>
-      {weather ? (
-        <p className={styles['temp']}>
-          {Math.round(weather?.main?.temp)} <span>&#8451;</span>
-        </p>
+      {city ? (
+        <>
+          <p className={styles['temp']}>
+            {weather ? (
+              <>
+                {Math.round(weather?.main?.temp)} <span>°C</span>
+              </>
+            ) : (
+              ''
+            )}
+          </p>
+          <h1>{city}</h1>
+        </>
       ) : (
-        <p className={styles['error']}>No data for this place</p>
+        <span className={styles['spinner']}></span>
       )}
     </div>
   );
