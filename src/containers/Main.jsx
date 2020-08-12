@@ -1,34 +1,21 @@
-import React, { useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-} from 'react-router-dom';
+import React from 'react';
+import { Route } from 'react-router-dom';
 
 import SelectedCity from './SelectedCity';
-import { connect } from 'react-redux';
+
 import CurrentCity from './CurrentCity';
 
-const Main = ({ seted_city, weather_data }) => {
+const Main = () => {
   return (
     <>
       <Route path={`/:topicId`}>
-        <SelectedCity city={seted_city} weather={weather_data} />
+        <SelectedCity />
       </Route>
       <Route exact path='/'>
-        <CurrentCity city={seted_city} weather={weather_data} />
+        <CurrentCity />
       </Route>
     </>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    seted_city: state.seted_city,
-    weather_data: state.weather_data,
-  };
-};
-
-export default connect(mapStateToProps, null)(Main);
+export default React.memo(Main);

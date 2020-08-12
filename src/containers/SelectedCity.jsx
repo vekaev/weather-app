@@ -1,26 +1,27 @@
-import { useHistory, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import React, { useEffect } from 'react';
-import { sendRequest } from '../redux/actions/actions';
 import { connect } from 'react-redux';
+import { sendRequest } from '../redux/actions/actions';
 
-const SelectedCity = ({ city, sendRequest }) => {
+const SelectedCity = ({ seted_city, weather_data, sendRequest }) => {
   let { topicId } = useParams();
-  const history = useHistory();
 
   useEffect(() => {
     sendRequest(topicId);
   }, [topicId]);
 
-  const returnToHomePage = () => {
-    history.push('/');
-  };
-
   return (
     <>
-      <h1>{city}</h1>
-      <button onClick={returnToHomePage}>Back</button>
+      <Link to={'/'}>Back</Link>
     </>
   );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    seted_city: state.seted_city,
+    weather_data: state.weather_data,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -29,10 +30,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default React.memo(
-  connect(
-    // mapStateToProps,
-    null,
-    mapDispatchToProps,
-  )(SelectedCity),
-);
+export default connect(mapStateToProps, mapDispatchToProps)(SelectedCity);

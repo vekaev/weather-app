@@ -30,6 +30,11 @@ export const sendRequest = (value) => (dispatch) => {
       dispatch(setWeatherData({ weather_data: res }));
     })
     .catch((error) => {
-      console.log(error);
+      dispatch(
+        setSelectedCity({
+          seted_city: `Not correct data`,
+        }),
+      );
+      dispatch(setWeatherData({ weather_data: null }));
     });
 };

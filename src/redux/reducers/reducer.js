@@ -3,7 +3,7 @@ import { SET_SELECTED_CITY, SET_WEATHER_DATA } from '../actions/actionTypes';
 
 export const initialState = {
   seted_city: 'Getting your location..',
-  weather_data: '',
+  weather_data: null,
 };
 
 export const filterReducer = (state = initialState, action) => {
