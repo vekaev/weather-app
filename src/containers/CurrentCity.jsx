@@ -14,9 +14,9 @@ const CurrentCity = ({ seted_city, weather_data, sendRequest }) => {
     });
   }, []);
   return (
-    <>
+    <div style={{ marginTop: 36 }}>
       <DateAndWeather city={seted_city} weather={weather_data} />
-    </>
+    </div>
   );
 };
 

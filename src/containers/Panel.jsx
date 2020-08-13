@@ -1,7 +1,7 @@
 import React from 'react';
 import CityAutocomplete from './CityAutocomplete';
 import { connect } from 'react-redux';
-import styles from './Constainer.module.scss';
+import styles from './Container.module.scss';
 import { AdditionalWeatherData } from '../components/AdditionalWeatherData';
 const Panel = ({ weather_data }) => {
   return (

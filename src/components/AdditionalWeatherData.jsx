@@ -2,8 +2,6 @@ import React from 'react';
 import styles from './AdditionalWeatherData.module.scss';
 
 export const AdditionalWeatherData = ({ weather }) => {
-  console.log(weather);
-
   return (
     <>
       {weather && (

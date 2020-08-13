@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import styles from './Constainer.module.scss';
+import styles from './Container.module.scss';
 import SelectedCity from './SelectedCity';
 import CurrentCity from './CurrentCity';
 
