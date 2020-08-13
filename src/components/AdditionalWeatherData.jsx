@@ -11,13 +11,13 @@ export const AdditionalWeatherData = ({ weather }) => {
           <li className={styles['list__item']}>
             <p>
               Minimum temperature:
-              <span>{weather?.main?.temp_max}°C</span>
+              <span>{weather?.main?.temp_min}°C</span>
             </p>
           </li>
           <li className={styles['list__item']}>
             <p>
               Maximum temperature:
-              <span>{weather?.main?.temp_min}°C</span>
+              <span>{weather?.main?.temp_max}°C</span>
             </p>
           </li>
           <li className={styles['list__item']}>

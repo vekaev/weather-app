@@ -13,8 +13,8 @@ const configPath = () => {
 module.exports = require(configPath())({
   paths: {
     // like '../../public/js/<YOUR PATH>'
-    js: 'dist',
+    js: 'build',
     // like '../../../design/css/<YOUR PATH>'
-    css: 'dist',
+    css: 'build',
   },
 });

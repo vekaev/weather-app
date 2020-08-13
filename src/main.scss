@@ -31,7 +31,9 @@
   .message {
     color: white !important;
   }
-
+  .item {
+    border-top: 1px solid rgba(255, 255, 255, 0.25) !important;
+  }
   @media (max-width: 768px) {
     .item {
       background: white !important;
