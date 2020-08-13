@@ -10,13 +10,14 @@ const CurrentCity = ({ seted_city, weather_data, sendRequest }) => {
         lat: position.coords.latitude,
         lon: position.coords.longitude,
       };
+
       sendRequest(newPosition);
     });
   }, []);
   return (
-    <>
+    <div style={{ marginTop: 36 }}>
       <DateAndWeather city={seted_city} weather={weather_data} />
-    </>
+    </div>
   );
 };
 

@@ -11,6 +11,7 @@ const CityAutocomplete = ({ seted_city, sendRequest }) => {
   const [optionValue, setOptionValue] = useState('');
   const history = useHistory();
   let cityName;
+
   if (seted_city) {
     cityName = seted_city.split(',');
   }
